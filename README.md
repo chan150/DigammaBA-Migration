@@ -12,7 +12,7 @@ val digammaBA = BA.digammaBA(broadcastBA)
 ```
 
 # working with TEMBO cluster
-### SSH should be registered by cluster manager 
+### a SSH public key should be registered by the cluster manager 
 ```shell
 // get password 
 $ get-token

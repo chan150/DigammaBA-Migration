@@ -40,7 +40,7 @@ object ApplicationMain {
     println(s"Launching ${args(0)}...")
     args(0) match {
       case "LineageBA" => {
-        println(remainArgs.deep)
+        println(remainArgs)
         val parser = new TrillionBAParser
         parser.argsParser(remainArgs)
         val ba = BA.constructFrom(parser)

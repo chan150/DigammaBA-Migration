@@ -2,7 +2,7 @@ name := "DiGammaBA"
 
 version := "1.0"
 
-scalaVersion := "2.13.6"
+scalaVersion := "2.12.6"
 
 //javacOptions ++= Seq("-source", "1.8", "-g:none")
 

@@ -40,41 +40,41 @@ object ApplicationMain {
     args(0) match {
       case "DiGammaBA" => {
         DiGammaBAGenerator(remainArgs)
-//        println(remainArgs.mkString("\t"))
-//        val parser = new TrillionBAParser
-//        parser.argsParser(remainArgs)
-//        val ba = BA.constructFrom(parser)
-//        (parser.bam0.toInt to parser.ban.toInt).flatMap{
-//          vid=>
-//            ba.determineAll(vid)
-//        }
-//       tembo
-//        val edges = ba.determineAll(20)
-//        edges.foreach(println)
-//        BAGenerator(remainArgs)
-      }//SKGGenerator(remainArgs)
+        //        println(remainArgs.mkString("\t"))
+        //        val parser = new TrillionBAParser
+        //        parser.argsParser(remainArgs)
+        //        val ba = BA.constructFrom(parser)
+        //        (parser.bam0.toInt to parser.ban.toInt).flatMap{
+        //          vid=>
+        //            ba.determineAll(vid)
+        //        }
+        //       tembo
+        //        val edges = ba.determineAll(20)
+        //        edges.foreach(println)
+        //        BAGenerator(remainArgs)
+      } //SKGGenerator(remainArgs)
       case _ =>
     }
 
-//    val src = 100
-//    val dst = 101
-//    val edge = (src, dst)
-//
-//    val vnew = 102
-//
-//
-//
-//    import org.apache.commons.math3.special.Gamma
-//    def f(e:Double, a:Double, b:Double, d:Double) =
-//      {Gamma.digamma(e/d + b + 1) - Gamma.digamma(e/d + a)} / d
-//
-////    println( f(100, 0,100, 1) )
-////    println( f(100, 100,100, 1) )
-//
-//    val e = 1000000 // = local edge (seed)
-//    val d = 20
-//
-//    println(f(e, 0,e, d) / (e to (1+d)*e).map(1d/_.toDouble).reduce(_+_))
-//    println(f(e, e,e, d) / (1d/(1+d)*e))
+    //    val src = 100
+    //    val dst = 101
+    //    val edge = (src, dst)
+    //
+    //    val vnew = 102
+    //
+    //
+    //
+    //    import org.apache.commons.math3.special.Gamma
+    //    def f(e:Double, a:Double, b:Double, d:Double) =
+    //      {Gamma.digamma(e/d + b + 1) - Gamma.digamma(e/d + a)} / d
+    //
+    ////    println( f(100, 0,100, 1) )
+    ////    println( f(100, 100,100, 1) )
+    //
+    //    val e = 1000000 // = local edge (seed)
+    //    val d = 20
+    //
+    //    println(f(e, 0,e, d) / (e to (1+d)*e).map(1d/_.toDouble).reduce(_+_))
+    //    println(f(e, e,e, d) / (1d/(1+d)*e))
   }
 }

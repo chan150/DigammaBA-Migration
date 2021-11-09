@@ -25,6 +25,12 @@ $ get-token
 // booking by web site
 $ 
 
+// make directory on computation node
+$ for i in  tem02 tem03 tem04 tem09 tem10 tem100 tem101 tem102 tem103 tem104 tem107; do ssh $i sudo mkdir /hdd2/h92park; done
+$ for i in  tem02 tem03 tem04 tem09 tem10 tem100 tem101 tem102 tem103 tem104 tem107; do ssh $i sudo chown h92park.users /hdd2/h92park; done
+
+// directory path: /hdd2/h92park
+
 // ssh compution machine
 $ ssh tem02
 

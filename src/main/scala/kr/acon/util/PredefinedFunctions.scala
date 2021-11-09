@@ -44,7 +44,7 @@ object PredefinedFunctions {
     import scala.sys.process._
     createDatafile(s"${filename}", logScaleAxis, multipleData: _*)
     createScript(s"${filename}", logScaleAxis, multipleData: _*)
-    s"gnuplot ${filename}.plt" !;
+    s"gnuplot ${filename}.plt" .!;
   }
 
   private def createDatafile(filename: String, logScaleAxis: String, multipleData: Array[String]*) {

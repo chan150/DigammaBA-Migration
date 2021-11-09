@@ -26,21 +26,20 @@ package kr.acon
 
 import kr.acon.generator.ba.BAGenerator.parser
 import kr.acon.generator.ba.{BA, BAGenerator}
-import kr.acon.generator.skg.SKGGenerator
 import kr.acon.parser.{Parser, TrillionBAParser}
 
 object ApplicationMain {
   def main(args: Array[String]): Unit = {
     val apps = Seq("TrillionG", "EvoGraph", "VUpscaler", "DiGammaBA", "TGPS", "LineageBA")
-    require(args.length >= 1, s"argument must be larger than 1, args=${args.deep}")
+    require(args.length >= 1, s"argument must be larger than 1, args=${args.mkString("\t")}")
     require(apps.contains(args(0)), s"Unknown application, " +
       s"please set application type in [${apps.mkString(", ")}]")
 
     val remainArgs = args.slice(1, args.length)
     println(s"Launching ${args(0)}...")
     args(0) match {
-      case "LineageBA" => {
-        println(remainArgs)
+      case "DiGammaBA" => {
+        println(remainArgs.mkString("\t"))
         val parser = new TrillionBAParser
         parser.argsParser(remainArgs)
         val ba = BA.constructFrom(parser)

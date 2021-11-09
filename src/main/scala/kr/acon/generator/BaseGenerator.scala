@@ -53,7 +53,7 @@ class BaseGenerator extends Serializable {
 
   def apply(implicit args: Array[String] = new Array[String](0)) {
     parser.argsParser(args)
-    SparkBuilder.setAppName(appName + " / " + (new Date).toString + " / " + args.deep)
+    SparkBuilder.setAppName(appName + " / " + (new Date).toString + " / " + args.mkString("\t"))
 
     val startTime = new Date
 

@@ -24,4 +24,13 @@ $ get-token
 
 // booking by web site
 $ 
+
+// ssh compution machine
+$ ssh tem02
+
+// execution on localhost
+$ ../spark-3.2.0-bin-hadoop3.2/bin/spark-submit --master local[*] --jars `ls lib/* | xargs echo | tr ' ' ,` --class kr.acon.ApplicationMain target/scala-2.12/digammaba_2.12-1.0.jar DiGammaBA graph4 -format tsv -ba.n 1000 -ba.m 10 -ba.m0 10 -ba.l 1000
+
+// execution on cluster
+$ 
 ```

@@ -25,7 +25,7 @@
 package kr.acon
 
 import kr.acon.generator.ba.BAGenerator.parser
-import kr.acon.generator.ba.{BA, BAGenerator}
+import kr.acon.generator.ba.{BA, BAGenerator, DiGammaBAGenerator}
 import kr.acon.parser.{Parser, TrillionBAParser}
 
 object ApplicationMain {
@@ -39,14 +39,15 @@ object ApplicationMain {
     println(s"Launching ${args(0)}...")
     args(0) match {
       case "DiGammaBA" => {
-        println(remainArgs.mkString("\t"))
-        val parser = new TrillionBAParser
-        parser.argsParser(remainArgs)
-        val ba = BA.constructFrom(parser)
-        (parser.bam0.toInt to parser.ban.toInt).flatMap{
-          vid=>
-            ba.determineAll(vid)
-        }
+        DiGammaBAGenerator(remainArgs)
+//        println(remainArgs.mkString("\t"))
+//        val parser = new TrillionBAParser
+//        parser.argsParser(remainArgs)
+//        val ba = BA.constructFrom(parser)
+//        (parser.bam0.toInt to parser.ban.toInt).flatMap{
+//          vid=>
+//            ba.determineAll(vid)
+//        }
 //       tembo
 //        val edges = ba.determineAll(20)
 //        edges.foreach(println)

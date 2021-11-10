@@ -31,6 +31,9 @@ $ for i in  tem02 tem03 tem04 tem09 tem10 tem100 tem101 tem102 tem103 tem104 tem
 
 // directory path: /hdd2/h92park
 
+
+$ for i in  tem02 tem03 tem04 tem09 tem10 tem100 tem101 tem102 tem103 tem104 tem107; do ssh $i jps; done
+
 // ssh compution machine
 $ ssh tem02
 
@@ -38,5 +41,5 @@ $ ssh tem02
 $ ../spark-3.2.0-bin-hadoop3.2/bin/spark-submit --master local[*] --jars `ls lib/* | xargs echo | tr ' ' ,` --class kr.acon.ApplicationMain target/scala-2.12/digammaba_2.12-1.0.jar DiGammaBA graph4 -format tsv -ba.n 1000 -ba.m 10 -ba.m0 10 -ba.l 1000
 
 // execution on cluster
-$ 
+$ spark-submit --master spark://tem02 --jars `ls lib/* | xargs echo | tr ' ' ,` --class kr.acon.ApplicationMain target/scala-2.12/digammaba_2.12-1.0.jar DiGammaBA graph4 -format tsv -ba.n 1000 -ba.m 10 -ba.m0 10 -ba.l 1000 -hdfs hdfs://tem02:9000/user/h92park/
 ```

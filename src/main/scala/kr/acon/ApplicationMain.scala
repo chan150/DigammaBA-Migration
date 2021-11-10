@@ -24,9 +24,7 @@
 
 package kr.acon
 
-import kr.acon.generator.ba.BAGenerator.parser
-import kr.acon.generator.ba.{BA, BAGenerator, DiGammaBAGenerator}
-import kr.acon.parser.{Parser, TrillionBAParser}
+import kr.acon.generator.ba.DiGammaBAGenerator
 
 object ApplicationMain {
   def main(args: Array[String]): Unit = {

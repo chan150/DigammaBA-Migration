@@ -38,6 +38,9 @@ object ApplicationMain {
     val remainArgs = args.slice(1, args.length)
     println(s"Launching ${args(0)}...")
     args(0) match {
+      case "LineageBA" => {
+        BAGenerator(remainArgs)
+      }
       case "DiGammaBA" => {
         DiGammaBAGenerator(remainArgs)
         //        println(remainArgs.mkString("\t"))

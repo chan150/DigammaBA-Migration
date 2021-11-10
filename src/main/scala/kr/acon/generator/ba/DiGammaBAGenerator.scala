@@ -33,6 +33,21 @@ object DiGammaBAGenerator extends BaseGenerator {
         }
     }
 
+    val degrees = edges.flatMap {
+      case (vid, adjacency) =>
+        adjacency.toArray(Array[Long]).map((vid, _))
+    }.flatMap {
+      case (u, v) =>
+        Iterator((u, 1L), (v, 1L))
+    }.reduceByKey {
+      _ + _
+    }
+
+    val edges2 = degrees.map {
+      case (vid, degree) =>
+
+    }
+
     // stage 2: get final graph
     edges
   }

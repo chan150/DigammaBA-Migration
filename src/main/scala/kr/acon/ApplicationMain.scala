@@ -28,34 +28,47 @@ import kr.acon.generator.ba.DiGammaBAGenerator
 
 object ApplicationMain {
   def main(args: Array[String]): Unit = {
-    val apps = Seq("TrillionG", "EvoGraph", "VUpscaler", "DiGammaBA", "TGPS", "LineageBA")
-    require(args.length >= 1, s"argument must be larger than 1, args=${args.mkString("\t")}")
-    require(apps.contains(args(0)), s"Unknown application, " +
-      s"please set application type in [${apps.mkString(", ")}]")
+    import org.apache.commons.math3.special.Gamma
+    def f(e: Double, a: Double, b: Double, d: Double) =
+      (Gamma.digamma(e / d + b + 1) - Gamma.digamma(e / d + a)) / d
 
-    val remainArgs = args.slice(1, args.length)
-    println(s"Launching ${args(0)}...")
-    args(0) match {
-//      case "LineageBA" => {
-//        BAGenerator(remainArgs)
-//      }
-      case "DiGammaBA" => {
-        DiGammaBAGenerator(remainArgs)
-        //        println(remainArgs.mkString("\t"))
-        //        val parser = new TrillionBAParser
-        //        parser.argsParser(remainArgs)
-        //        val ba = BA.constructFrom(parser)
-        //        (parser.bam0.toInt to parser.ban.toInt).flatMap{
-        //          vid=>
-        //            ba.determineAll(vid)
-        //        }
-        //       tembo
-        //        val edges = ba.determineAll(20)
-        //        edges.foreach(println)
-        //        BAGenerator(remainArgs)
-      } //SKGGenerator(remainArgs)
-      case _ =>
-    }
+    //    println( f(100, 0,100, 1) )
+    //    println( f(100, 100,100, 1) )
+
+    val e = 1000000 // = local edge (seed)
+    val d = 20
+
+    println(f(e, 0, e, d) / (e to (1 + d) * e).map(1d / _.toDouble).reduce(_ + _))
+    println(f(e, e, e, d) / (1d / (1 + d) * e))
+
+    //    val apps = Seq("TrillionG", "EvoGraph", "VUpscaler", "DiGammaBA", "TGPS", "LineageBA")
+    //    require(args.length >= 1, s"argument must be larger than 1, args=${args.mkString("\t")}")
+    //    require(apps.contains(args(0)), s"Unknown application, " +
+    //      s"please set application type in [${apps.mkString(", ")}]")
+    //
+    //    val remainArgs = args.slice(1, args.length)
+    //    println(s"Launching ${args(0)}...")
+    //    args(0) match {
+    ////      case "LineageBA" => {
+    ////        BAGenerator(remainArgs)
+    ////      }
+    //      case "DiGammaBA" => {
+    //        DiGammaBAGenerator(remainArgs)
+    //        //        println(remainArgs.mkString("\t"))
+    //        //        val parser = new TrillionBAParser
+    //        //        parser.argsParser(remainArgs)
+    //        //        val ba = BA.constructFrom(parser)
+    //        //        (parser.bam0.toInt to parser.ban.toInt).flatMap{
+    //        //          vid=>
+    //        //            ba.determineAll(vid)
+    //        //        }
+    //        //       tembo
+    //        //        val edges = ba.determineAll(20)
+    //        //        edges.foreach(println)
+    //        //        BAGenerator(remainArgs)
+    //      } //SKGGenerator(remainArgs)
+    //      case _ =>
+    //    }
 
     //    val src = 100
     //    val dst = 101

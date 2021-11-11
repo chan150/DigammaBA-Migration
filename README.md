@@ -15,7 +15,7 @@ val digammaBA = BA.digammaBA(broadcastBA)
 ### a SSH public key should be registered by the cluster manager 
 
 #### issue #1 jdk 11 feasibility
-#### issue #2 scala 2.13 - deprecated syntax (2.11 => 2.13)
+#### issue #2 scala 2.12 - deprecated syntax (2.11 => 2.12)
 #### issue #3 DigammaBA => DigammaBA-Migration 
 
 ```shell
@@ -23,18 +23,16 @@ val digammaBA = BA.digammaBA(broadcastBA)
 $ get-token
 
 // booking by web site
-$ 
+// https://tembo-reserve.cs.uwaterloo.ca/Web/?
 
-// make directory on computation node
+// make directory on computation nodes (1 master and 10 workers)
 $ for i in  tem02 tem03 tem04 tem09 tem10 tem100 tem101 tem102 tem103 tem104 tem107; do ssh $i sudo mkdir /hdd2/h92park; done
 $ for i in  tem02 tem03 tem04 tem09 tem10 tem100 tem101 tem102 tem103 tem104 tem107; do ssh $i sudo chown h92park.users /hdd2/h92park; done
 
 // directory path: /hdd2/h92park
-
-
 $ for i in  tem02 tem03 tem04 tem09 tem10 tem100 tem101 tem102 tem103 tem104 tem107; do ssh $i jps; done
 
-// ssh compution machine
+// ssh a mster node
 $ ssh tem02
 
 // execution on localhost

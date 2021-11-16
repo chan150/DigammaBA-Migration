@@ -41,3 +41,22 @@ $ ../spark-3.2.0-bin-hadoop3.2/bin/spark-submit --master local[*] --jars `ls lib
 // execution on cluster
 $ spark-submit --master spark://tem02 --jars `ls lib/* | xargs echo | tr ' ' ,` --class kr.acon.ApplicationMain target/scala-2.12/digammaba_2.12-1.0.jar DiGammaBA graph4 -format tsv -ba.n 1000 -ba.m 10 -ba.m0 10 -ba.l 1000 -hdfs hdfs://tem02:9000/user/h92park/
 ```
+
+
+# experiment history 
+```shell
+// on login server
+sbt/bin/sbt package
+
+// on tem02
+spark-submit --master spark://tem02 --jars `ls lib/* | xargs echo | tr ' ' ,` --class kr.acon.ApplicationMain target/scala-2.12/digammaba_2.12-1.0.jar LineageBA graph8 -format tsv -ba.n 10000 -ba.m 10 -ba.m0 10 -ba.l 1000 -hdfs hdfs://tem02:9000/user/h92park/
+
+// concat a graph to visulize using SNAP
+hdfs dfs -copyToLocal graph8 .
+cat graph8/* &> graph8.txt
+mkdir graph8p
+cd graph8p
+../../snap/examples/netstat/netstat -i:../graph8.txt -d:F
+
+// X11 forwording 
+```

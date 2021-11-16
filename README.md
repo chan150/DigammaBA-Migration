@@ -45,6 +45,9 @@ $ spark-submit --master spark://tem02 --jars `ls lib/* | xargs echo | tr ' ' ,` 
 
 # experiment history 
 ```shell
+// retrive codes from github
+git pull
+
 // on login server
 sbt/bin/sbt package
 
